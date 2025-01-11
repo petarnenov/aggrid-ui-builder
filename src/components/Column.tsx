@@ -1,6 +1,15 @@
 import { useDrag, useDrop } from "react-dnd";
 import { v4 as uuidv4 } from 'uuid';
 
+export type ColumnDragItem = {
+	id: string;
+    typeId: string;
+    headerName: string;
+    cellDataType: string;
+    field: string;
+    source: 'wip' | 'workInProgress' | 'completed';
+}
+
 const Column = ({ source = 'wip', order, dispatch, ...rest }) => {
 
 	//const drag = useRef(null);

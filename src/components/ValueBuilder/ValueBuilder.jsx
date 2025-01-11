@@ -1,30 +1,15 @@
-import { useState } from 'react'
-import { useDrag, useDrop } from 'react-dnd'
-
-import styles from './ValueBuilder.module.scss'
 import Button from '../Button/Button'
+import { useVariantBuilderViewModel } from './hooks'
+import styles from './ValueBuilder.module.scss'
 
 const ValueBuilder = () => {
-	const [expression, setExpression] = useState('')
-
-	const [{ }, drop] = useDrop(() => {
-		return {
-			accept: 'card',
-			drop: (item, monitor) => {
-				setExpression(expression => expression + ' ' + item.field)
-			}
-		}
-	}, [])
-
-	const [{ }, drag] = useDrag(() => ({
-		type: 'expression',
-		item: {
-			expression: expression.trim(),
-		}
-	}), [expression])
-
-	console.log("push666 expression: ", expression)
-
+	const {
+		expression,
+		drop,
+		drag,
+		dragPreview,
+		handleReset
+	} = useVariantBuilderViewModel()
 
 	return (
 		<div
@@ -35,11 +20,11 @@ const ValueBuilder = () => {
 				variant="danger"
 				verticalPosition='top'
 				horizontalPosition='right'
-				onClick={() => setExpression('')}
+				onClick={handleReset}
 			>
 				Reset
 			</Button>
-			<code ref={drag}>{expression}</code>
+			<code className={styles.expression} ref={drag}><span ref={dragPreview}>{expression}</span></code>
 		</div>
 	)
 }

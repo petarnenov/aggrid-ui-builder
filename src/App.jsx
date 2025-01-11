@@ -5,7 +5,7 @@ import Column from './components/Column'
 import CustomGrid from './components/CustomGrid'
 import { ColumnDefsBuilder } from './components/ColumnDefsBuilder'
 import { useSliceGridDataStore } from './store/store'
-import ValueBuilder from './components/ValueBuilder/ValueBuilder'
+import { ValueBuilder } from './components'
 
 function App() {
   const { data } = useSliceGridDataStore()
