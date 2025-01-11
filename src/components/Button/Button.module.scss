@@ -1,0 +1,101 @@
+.buttonWrapper {
+	$padding: 8px 16px;
+	$border: none;
+	$border-radius: 4px;
+	$cursor-pointer: pointer;
+	$font-size: 16px;
+	$transition: background-color 0.3s ease;
+	$primary-bg: #007bff;
+	$primary-color: white;
+	$secondary-bg: #6c757d;
+	$secondary-color: white;
+	$standard-bg: #f8f9fa;
+	$standard-color: black;
+	$danger-bg: #dc3545;
+	$danger-color: white;
+	$success-bg: #28a745;
+	$success-color: white;
+
+	display: inline-block;
+
+	.button {
+		padding: var(--padding, #{$padding});
+		border: var(--border, #{$border});
+		border-radius: var(--border-radius, #{$border-radius});
+		cursor: var(--cursor-pointer, #{$cursor-pointer});
+		font-size: var(--font-size, #{$font-size});
+		transition: var(--transition, #{$transition});
+
+		&[data-variant='primary'] {
+			background-color: var(--primary-bg, #{$primary-bg});
+			color: var(--primary-color, #{$primary-color});
+		}
+
+		&[data-variant='secondary'] {
+			background-color: var(--secondary-bg, #{$secondary-bg});
+			color: var(--secondary-color, #{$secondary-color});
+		}
+
+		&[data-variant='standard'] {
+			background-color: var(--standard-bg, #{$standard-bg});
+			color: var(--standard-color, #{$standard-color});
+		}
+
+		&[data-variant='danger'] {
+			background-color: var(--danger-bg, #{$danger-bg});
+			color: var(--danger-color, #{$danger-color});
+		}
+
+		&[data-variant='success'] {
+			background-color: var(--success-bg, #{$success-bg});
+			color: var(--success-color, #{$success-color});
+		}
+
+		&[data-size='small'] {
+			font-size: var(--font-size-small, 12px);
+			padding: var(--padding-small, 4px 8px);
+		}
+
+		&[data-size='medium'] {
+			font-size: var(--font-size, #{$font-size});
+			padding: var(--padding-medium, #{$padding});
+		}
+
+		&[data-size='large'] {
+			font-size: var(--font-size-large, 20px);
+			padding: var(--padding-large, 12px 24px);
+		}
+
+		&[data-vertical-position='top'] {
+			position: var(--position-vertical-top, absolute);
+			top: var(--vertical-top, 0);
+		}
+
+		&[data-vertical-position='center'] {
+			position: var(--position-vertical-center, absolute);
+			top: var(--vertical-center, 50%);
+			transform: var(--transform, translateY(-50%));
+		}
+
+		&[data-vertical-position='bottom'] {
+			position: var(--position-vertical-bottom, absolute);
+			bottom: var(--vertical-bottom, 0);
+		}
+
+		&[data-horizontal-position='left'] {
+			position: var(--position-horizontal-left, absolute);
+			left: var(--horizontal-left, 0);
+		}
+
+		&[data-horizontal-position='center'] {
+			position: var(--position-horizontal-center, absolute);
+			left: var(--horizontal-center, 50%);
+			transform: var(--transform, translateX(-50%));
+		}
+
+		&[data-horizontal-position='right'] {
+			position: var(--position-horizontal-right, absolute);
+			right: var(--horizontal-right, 0);
+		}
+	}
+}

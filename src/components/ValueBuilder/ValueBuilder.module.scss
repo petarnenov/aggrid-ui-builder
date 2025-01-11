@@ -1,0 +1,27 @@
+.valueBuilder {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 64px;
+	background-color: #f0fff0;
+	padding: 4px;
+	width: 100%;
+	padding-bottom: 10px;
+	flex-direction: column;
+	position: relative;
+	border: 4px dashed darkblue;
+	border-radius: 8px;
+	margin: 4px;
+
+	.resetButton {
+		top: 2px;
+		right: 2px;
+		background-color: red;
+		color: white;
+		border: none;
+		cursor: pointer;
+		padding: 4px 10px;
+		border-radius: 4px;
+		position: absolute;
+	}
+}
