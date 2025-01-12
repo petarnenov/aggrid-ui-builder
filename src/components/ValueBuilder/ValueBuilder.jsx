@@ -16,6 +16,7 @@ const ValueBuilder = () => {
 			ref={drop}
 			className={styles.valueBuilder}
 		>
+		    <h3 className={styles.header}>Value Builder</h3>
 			<Button
 				variant="danger"
 				verticalPosition='top'

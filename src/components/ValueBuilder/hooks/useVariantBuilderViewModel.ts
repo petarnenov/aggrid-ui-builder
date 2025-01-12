@@ -1,7 +1,11 @@
 import {useDrag, useDrop } from "react-dnd";
 import { useVariantBuilderModel } from ".";
 import { useCallback } from "react";
-import type { ColumnDragItem } from "../../Column";
+import type { ColumnSourceDragItem } from "../../ColumnSource/ColumnSource";
+
+export type ValueBuilderItem = {
+	expression: string;
+}
 
 export const useVariantBuilderViewModel = () => {
 	const {expression,setExpression} = useVariantBuilderModel();
@@ -9,7 +13,7 @@ export const useVariantBuilderViewModel = () => {
 	const [, drop] = useDrop(() => {
 		return {
 			accept: 'card',
-			drop: (item : ColumnDragItem) => {
+			drop: (item : ColumnSourceDragItem) => {
 				setExpression(expression => expression + ' ' + item.field)
 			}
 		}

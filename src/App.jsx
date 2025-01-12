@@ -1,11 +1,14 @@
 
 import { useMemo } from 'react'
-import './App.css'
-import Column from './components/Column'
-import CustomGrid from './components/CustomGrid'
-import { ColumnDefsBuilder } from './components/ColumnDefsBuilder'
 import { useSliceGridDataStore } from './store/store'
-import { ValueBuilder } from './components'
+import {
+  ValueBuilder,
+  CustomGrid,
+  ColumnBuilder,
+  ColumnSource
+} from './components'
+
+import styles from './App.module.scss'
 
 function App() {
   const { data } = useSliceGridDataStore()
@@ -25,64 +28,23 @@ function App() {
 
   return (
     <>
-      <section style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#f0f0f0',
-        padding: '4px',
-        width: '100%',
-        flexDirection: 'column',
-      }}>
-        <ColumnDefsBuilder>
-          <p>Column Builder</p>
-        </ColumnDefsBuilder>
+      <section className={styles.layoutContainer}>
+        <section className={styles.main}>
+          <section className={styles.builders}>
 
-        <ValueBuilder>
-          <p>Value Builder</p>
-        </ValueBuilder>
+            <ColumnBuilder>
+              <p>Column Builder</p>
+            </ColumnBuilder>
 
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          height: '40vh',
-          backgroundColor: '#f0f0f0',
-          padding: '4px',
-          width: '100%',
-          flexDirection: 'row'
-        }}>
-          <section style={{
-            display: 'flex',
-            gap: '10px',
-            //justifyContent: 'space-around',
-            //alignItems: 'center',
-            backgroundColor: '#14f4f4',
-            padding: '4px',
-            width: '100%',
-            flexDirection: 'column'
-          }}>
-            <p>Columns</p>
-            <div
-              style={{
-                display: 'flex',
-                gap: '10px',
-                //justifyContent: 'space-around',
-                //alignItems: 'center',
-                backgroundColor: '#f4f414',
-                padding: '4px',
-                width: '96%',
-                flexWrap: 'wrap',
-                flexDirection: 'row',
-              }}>
+            <ValueBuilder />
 
-              {columns.map(column => <Column key={column.id} {...column} />)}
-            </div>
+            <section className={styles.gridPreview}>
+              <CustomGrid />
+            </section>
           </section>
-        </div>
-        <section style={{}}>
-          <CustomGrid />
+          <section className={styles.columnSource}>
+            {columns.map(column => <ColumnSource key={column.id} {...column} />)}
+          </section>
         </section>
       </section>
     </>

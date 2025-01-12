@@ -1,0 +1,12 @@
+.customGridWrapper {
+	position: relative;
+	border: 2px solid darkgrey;
+	border-radius: 8px;
+	margin-bottom: 8px;
+
+	.header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

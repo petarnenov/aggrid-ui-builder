@@ -1,13 +1,16 @@
 import { AgGridReact } from 'ag-grid-react'
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
-import { useSliceColumnDefsBuilderStore, useSliceGridDataStore } from '../store/store';
+import { useSliceColumnDefsBuilderStore, useSliceGridDataStore } from '../..//store/store';
 import { useCallback, useRef, useState } from 'react';
+import { Button } from '../Button';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
+import styles from './CustomGrid.module.scss';
+
 const CustomGrid = () => {
-	const [savedColumnDefs, setSavedColumnDefs] = useState()
 	const gridRef = useRef(null);
+	const [savedColumnDefs, setSavedColumnDefs] = useState()
 	const { data } = useSliceGridDataStore();
 	const { columnDefs, setColumnDefs } = useSliceColumnDefsBuilderStore();
 
@@ -35,16 +38,33 @@ const CustomGrid = () => {
 
 	return (
 		<>
-			<button onClick={handleSaveClick}>Save Grid Configuration</button>
-			<button onClick={handleRestoreClick}>Restore Grid Configuration</button>
-			<div style={{ height: '216px', width: '1000px' }}>
-				<AgGridReact
-					ref={gridRef}
-					onGridReady={handleGridReady}
-					columnDefs={columnDefs}
-					onGridColumnsChanged={() => gridRef.current.api.sizeColumnsToFit()}
-				/>
-			</div>
+			<section className={styles.customGridWrapper}>
+				<Button
+					variant="secondary"
+					verticalPosition='top'
+					horizontalPosition='left'
+					onClick={handleSaveClick}
+				>
+					Save Configuration
+				</Button>
+				<Button
+					variant="secondary"
+					verticalPosition='top'
+					horizontalPosition='right'
+					onClick={handleRestoreClick}
+				>
+					Restore Configuration
+				</Button>
+				<h3 className={styles.header}>Custom Grid</h3>
+				<div style={{ height: '192px', width: '1000px' }}>
+					<AgGridReact
+						ref={gridRef}
+						onGridReady={handleGridReady}
+						columnDefs={columnDefs}
+						onGridColumnsChanged={() => gridRef.current.api.sizeColumnsToFit()}
+					/>
+				</div>
+			</section>
 		</>
 	)
 }

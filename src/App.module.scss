@@ -1,0 +1,43 @@
+.layoutContainer {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+
+	.main {
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+
+		.builders {
+			display: flex;
+			flex-direction: column;
+			flex: 9;
+
+			.columnBuilder {
+				flex: 3;
+				border: 1px solid black;
+				padding: 10px;
+			}
+
+			.valueBuilder {
+				flex: 1;
+				border: 1px solid black;
+				padding: 10px;
+			}
+
+			.gridPreview {
+				flex: 3;
+				display: flex;
+				justify-content: center;
+			}
+		}
+
+		.columnSource {
+			flex: 1;
+			border: 1px solid black;
+			padding: 10px;
+			height: 100vh;
+			overflow-y: auto;
+		}
+	}
+}

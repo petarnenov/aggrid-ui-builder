@@ -17,6 +17,7 @@ type ButtonProps = {
   verticalPosition?: ButtonVerticalPosition;
   horizontalPosition?: ButtonHorizontalPosition;
   size?: ButtonSize;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
@@ -34,8 +35,8 @@ const Button = ({
         className={styles.button}
         data-variant={variant}
         data-size={size}
-		data-vertical-position={verticalPosition}
-		data-horizontal-position={horizontalPosition}
+        data-vertical-position={verticalPosition}
+        data-horizontal-position={horizontalPosition}
         {...rest}
       >
         {children}
