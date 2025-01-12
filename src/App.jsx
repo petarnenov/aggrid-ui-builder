@@ -32,15 +32,16 @@ function App() {
         <section className={styles.main}>
           <section className={styles.builders}>
 
+            <section className={styles.gridPreview}>
+              <CustomGrid />
+            </section>
+
+            <ValueBuilder />
+
             <ColumnBuilder>
               <p>Column Builder</p>
             </ColumnBuilder>
 
-            <ValueBuilder />
-
-            <section className={styles.gridPreview}>
-              <CustomGrid />
-            </section>
           </section>
           <section className={styles.columnSource}>
             {columns.map(column => <ColumnSource key={column.id} {...column} />)}

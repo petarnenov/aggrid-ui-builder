@@ -40,7 +40,7 @@ const CustomGrid = () => {
 		<>
 			<section className={styles.customGridWrapper}>
 				<Button
-					variant="secondary"
+					variant="success"
 					verticalPosition='top'
 					horizontalPosition='left'
 					onClick={handleSaveClick}
