@@ -89,6 +89,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License.
-```
-
-This README provides a comprehensive overview of your project, including its features, technologies used, setup instructions, project structure, available scripts, and contribution guidelines. You may want to customize it further based on specific details of your project or add any additional sections that you find relevant.
