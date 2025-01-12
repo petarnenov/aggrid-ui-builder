@@ -25,7 +25,7 @@ const ValueBuilder = () => {
 			>
 				Reset
 			</Button>
-			<code className={styles.expression} ref={drag}><span ref={dragPreview}>{expression}</span></code>
+			<code className={styles.expression} ref={drag}><span ref={node => dragPreview(node)} className={styles.value}>{expression}</span></code>
 		</div>
 	)
 }

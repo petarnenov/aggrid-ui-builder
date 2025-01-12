@@ -26,16 +26,25 @@
 	}
 
 	.expression{
-		display: inline-block;
+		display: inline-flex;
 		height: 32px;
 		font-size: 12px;
         width: 100%;
-        text-align: center;
+        justify-content: center;
         padding: 4px;
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: #f0f0f0;
         font-weight: bold;
+
+		.value{
+            border: 2px dashed darkblue;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+            outline: none;
+		}
 	}
 
 	.header{

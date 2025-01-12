@@ -17,7 +17,7 @@ export const useVariantBuilderViewModel = () => {
 				setExpression(expression => expression + ' ' + item.field)
 			}
 		}
-	}, [])
+	}, [expression]);
 
 	const [, drag, dragPreview] = useDrag(() => ({
 		type: 'expression',
@@ -28,7 +28,7 @@ export const useVariantBuilderViewModel = () => {
 
 	const handleReset = useCallback(() => {
         setExpression('');
-    }, []);
+    }, [expression]);
 
 	return {
         expression,
