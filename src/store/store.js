@@ -101,6 +101,13 @@ const useStore = create((set) => ({
 				} : column)
 			}
 		})),
+		swapItems: (dragIndex, hoverIndex) => set((state) => {
+			const columnDefs = [...state.sliceColumnDefsBuilder.columnDefs];
+			[columnDefs[dragIndex], columnDefs[hoverIndex]] = [columnDefs[hoverIndex], columnDefs[dragIndex]]
+			return (
+				{ sliceColumnDefsBuilder: { ...state.sliceColumnDefsBuilder, columnDefs } }
+			);
+		}),
 	},
 }))
 

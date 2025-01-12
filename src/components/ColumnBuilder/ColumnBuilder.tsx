@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDrop } from "react-dnd";
 import { useSliceColumnDefsBuilderStore } from "../../store/store";
 import ColumnEdit, { ColumnEditableItem } from "../ColumnEdit/ColumnEdit";
 import { Button } from "../Button";
 
 const ColumnBuilder = ({ children }) => {
+  const ref = useRef(null);
   const { columnDefs, addColumnDef, resetColumnDefs } =
     useSliceColumnDefsBuilderStore();
 
@@ -28,9 +29,11 @@ const ColumnBuilder = ({ children }) => {
     }),
   });
 
+  drop(ref);
+
   return (
     <section
-      ref={drop}
+      ref={ref}
       style={{
         display: "flex",
         gap: "4px",
@@ -66,8 +69,15 @@ const ColumnBuilder = ({ children }) => {
         >
           Reset
         </Button>
-        {columnDefs?.map((columnDef) => {
-          return <ColumnEdit key={columnDef.id} {...columnDef} source="drop" />;
+        {columnDefs.map((columnDef, index) => {
+          return (
+            <ColumnEdit
+              key={columnDef.id}
+              {...columnDef}
+              source="drop"
+              index={index}
+            />
+          );
         })}
       </div>
     </section>

@@ -61,7 +61,11 @@ const CustomGrid = () => {
 						ref={gridRef}
 						onGridReady={handleGridReady}
 						columnDefs={columnDefs}
+						defaultColDef={{
+							suppressMovable: true,
+						}}
 						onGridColumnsChanged={() => gridRef.current.api.sizeColumnsToFit()}
+						animateRows={true}
 					/>
 				</div>
 			</section>

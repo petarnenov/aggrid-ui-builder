@@ -1,0 +1,67 @@
+.columnEditContainer {
+	background-color: lightGrey;
+	border: 1px solid gray;
+	border-radius: 8px;
+	padding: 4px;
+	cursor: move;
+	margin: 2px;
+	width: 150px;
+	height: 180px;
+	text-align: center;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	position: relative;
+
+	.removeColumnButton {
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		font-size: 10px;
+		cursor: pointer;
+		color: white;
+		padding: 2px 4px;
+		z-index: 100;
+		border-radius: 50%;
+		background-color: red;
+	}
+
+	.columnHeaderContainer {
+		position: relative;
+		overflow: hidden;
+		margin-bottom: 4px;
+
+		.columnEditHeader {
+			font-weight: bold;
+			margin-bottom: 4px;
+			text-align: center;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		.columnId {
+			font-size: 14px;
+			font-weight: bold;
+			margin-bottom: 4px;
+			text-align: center;
+			width: 100%;
+			overflow: hidden;
+			color: gray;
+		}
+	}
+
+	.columnValueContainer {
+		height: 100px;
+		display: flex;
+		border: 2px dashed gray;
+		border-radius: 4px;
+		padding: 4px;
+		cursor: pointer;
+		background-color: lightgray;
+		color: gray;
+		font-size: 16px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
