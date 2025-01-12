@@ -161,11 +161,10 @@ const ColumnEdit = ({
         >
           X
         </p>
-        <label>Header Name</label>
         <input
           className={styles.columnEditHeader}
           type="text"
-          placeholder="Enter header name"
+          placeholder="update header name"
           onChange={handleHeaderNameChange}
         />
       </div>
