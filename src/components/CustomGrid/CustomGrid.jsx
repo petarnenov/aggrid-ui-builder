@@ -55,7 +55,7 @@ const CustomGrid = () => {
 				>
 					Restore Configuration
 				</Button>
-				<h3 className={styles.header}>Custom Grid</h3>
+				<h3 className={styles.header}>Custom AGGrid</h3>
 				<div style={{ height: '192px', width: '100%' }}>
 					<AgGridReact
 						ref={gridRef}
