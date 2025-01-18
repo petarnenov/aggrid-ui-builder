@@ -2,10 +2,9 @@
 import {
   ValueBuilder,
   CustomGrid,
-  ColumnBuilder
+  ColumnBuilder,
+  ColumnSourceList
 } from './components'
-
-import ColumnSourceList from './components/ColumnSourceList/ColumnSourceList'
 
 import styles from './App.module.scss'
 
