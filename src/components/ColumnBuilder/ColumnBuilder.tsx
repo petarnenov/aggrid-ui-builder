@@ -47,7 +47,7 @@ const ColumnBuilder = ({ children }) => {
         position: "relative",
       }}
     >
-      {children}
+      <p>Column Builder</p>
       <div
         style={{
           display: "flex",

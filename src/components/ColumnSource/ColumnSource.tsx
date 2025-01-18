@@ -13,7 +13,23 @@ export type ColumnSourceDragItem = {
   source: "column-source" | "workInProgress" | "completed";
 };
 
-const Column = ({ source = "column-source", order, dispatch, ...rest }) => {
+export type ColumnProps = {
+  id?: string | undefined;
+  typeId?: string;
+  headerName: string;
+  cellDataType: string;
+  field: string;
+  source?: "column-source" | "workInProgress" | "completed";
+  order?: any;
+  dispatch?: any;
+};
+
+const Column = ({
+  source = "column-source",
+  order,
+  dispatch,
+  ...rest
+}: ColumnProps) => {
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: source === "column-source" ? "card" : "card-dropped",
@@ -42,10 +58,7 @@ const Column = ({ source = "column-source", order, dispatch, ...rest }) => {
   );
 
   return (
-    <div
-      ref={(node) => drag(drop(node))}
-	  className={styles.columnSourceItem}
-    >
+    <div ref={(node) => drag(drop(node))} className={styles.columnSourceItem}>
       <span>{rest.headerName}</span>
     </div>
   );

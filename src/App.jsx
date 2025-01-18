@@ -1,54 +1,27 @@
 
-import { useMemo } from 'react'
-import { useSliceGridDataStore } from './store/store'
 import {
   ValueBuilder,
   CustomGrid,
-  ColumnBuilder,
-  ColumnSource
+  ColumnBuilder
 } from './components'
+
+import ColumnSourceList from './components/ColumnSourceList/ColumnSourceList'
 
 import styles from './App.module.scss'
 
 function App() {
-  const { data } = useSliceGridDataStore()
-
-  const columns = useMemo(() => {
-    const dataSource = data[0]
-    dataSource['customColumn'] = 'customColumn'
-    dataSource['+'] = '+'
-    dataSource['-'] = '-'
-    dataSource['*'] = '*'
-    dataSource['/'] = '/'
-    dataSource['('] = '('
-    dataSource[')'] = ')'
-    const columns = Object.keys(dataSource).map(key => ({ field: key, headerName: key, width: 120, cellDataType: typeof data[0][key] }))
-    return columns;
-  }, [data])
 
   return (
-    <>
-      <section className={styles.layoutContainer}>
-        <section className={styles.main}>
-          <section className={styles.builders}>
-
-            <section className={styles.gridPreview}>
-              <CustomGrid />
-            </section>
-
-            <ValueBuilder />
-
-            <ColumnBuilder>
-              <p>Column Builder</p>
-            </ColumnBuilder>
-
-          </section>
-          <section className={styles.columnSource}>
-            {columns.map(column => <ColumnSource key={column.id} {...column} />)}
-          </section>
+    <section className={styles.layoutContainer}>
+      <section className={styles.main}>
+        <section className={styles.builders}>
+          <CustomGrid />
+          <ValueBuilder />
+          <ColumnBuilder />
         </section>
+        <ColumnSourceList />
       </section>
-    </>
+    </section>
   )
 }
 
