@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">72.72% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/11</span>
+                <span class='fraction'>8/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/9</span>
+                <span class='fraction'>7/9</span>
             </div>
         
             
@@ -121,29 +121,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,13 +162,13 @@ export type ValueBuilderItem = {
 &nbsp;
 export const useVariantBuilderViewModel = ({
 	useVariantBuilderModel = useVariantBuilderModelDI,
-	useDrop = <span class="branch-0 cbranch-no" title="branch not covered" >useDropDI,</span>
-	useDrag = <span class="branch-0 cbranch-no" title="branch not covered" >useDragDI,</span>
+	useDrop = useDropDI,
+	useDrag = useDragDI,
 }) =&gt; {
 	const {expression,setExpression} = useVariantBuilderModel();
 &nbsp;
-	const [, drop] = useDrop(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >		return {</span>
+	const [, drop] = useDrop(() =&gt; {
+		return {
 			accept: 'card',
 			drop: <span class="fstat-no" title="function not covered" >(i</span>tem : ColumnSourceDragItem) =&gt; {
 <span class="cstat-no" title="statement not covered" >				setExpression(<span class="fstat-no" title="function not covered" >expression =&gt; <span class="cstat-no" title="statement not covered" >e</span>xpression + ' ' + item.field)</span></span>
@@ -176,7 +176,7 @@ export const useVariantBuilderViewModel = ({
 		}
 	}, [expression]);
 &nbsp;
-	const [, drag, dragPreview] = useDrag(<span class="fstat-no" title="function not covered" >() =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+	const [, drag, dragPreview] = useDrag(() =&gt; ({
 		type: 'expression',
 		item: {
 			expression: expression?.trim(),
@@ -202,7 +202,7 @@ export const useVariantBuilderViewModel = ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-01-19T17:13:38.621Z
+                at 2025-01-19T19:44:43.767Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

@@ -1,8 +1,9 @@
 import React from "react";
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
-
+import { fireEvent, render, screen } from "../../tests/testUtils";
 import ValueBuilder from "./ValueBuilder";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const mockDrop = vi.fn();
 const mockDrag = vi.fn();
@@ -48,6 +49,18 @@ describe("ValueBuilder", () => {
     expect(screen.getByText("Value Builder")).toBeInTheDocument();
     expect(screen.getByText("Reset")).toBeInTheDocument();
     expect(screen.getByText("test expression")).toBeInTheDocument();
+    //screen.debug()
+  });
+
+  it("renders correctly with default", () => {
+    render(
+      <DndProvider backend={HTML5Backend}>
+        <ValueBuilder />
+      </DndProvider>
+    );
+
+    expect(screen.getByText("Value Builder")).toBeInTheDocument();
+    expect(screen.getByText("Reset")).toBeInTheDocument();
     //screen.debug()
   });
 
