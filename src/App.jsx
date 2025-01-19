@@ -1,4 +1,4 @@
-
+import React from "react"
 import {
   ValueBuilder,
   CustomGrid,
@@ -11,9 +11,18 @@ import styles from './App.module.scss'
 function App() {
 
   return (
-    <section className={styles.layoutContainer}>
-      <section className={styles.main}>
-        <section className={styles.builders}>
+    <section
+      className={styles.layoutContainer}
+      data-testid="layout-container-section"
+    >
+      <section
+        className={styles.main}
+        data-testid="main-section"
+      >
+        <section
+          className={styles.builders}
+          data-testid="builders-section"
+        >
           <CustomGrid />
           <ValueBuilder />
           <ColumnBuilder />

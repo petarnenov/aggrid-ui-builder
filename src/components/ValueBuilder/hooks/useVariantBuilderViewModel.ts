@@ -1,5 +1,5 @@
-import {useDrag, useDrop } from "react-dnd";
-import { useVariantBuilderModel } from ".";
+import {useDrag as useDragDI, useDrop as useDropDI } from "react-dnd";
+import { useVariantBuilderModel as useVariantBuilderModelDI } from ".";
 import { useCallback } from "react";
 import type { ColumnSourceDragItem } from "../../ColumnSource/ColumnSource";
 
@@ -7,7 +7,11 @@ export type ValueBuilderItem = {
 	expression: string;
 }
 
-export const useVariantBuilderViewModel = () => {
+export const useVariantBuilderViewModel = ({
+	useVariantBuilderModel = useVariantBuilderModelDI,
+	useDrop = useDropDI,
+	useDrag = useDragDI,
+}) => {
 	const {expression,setExpression} = useVariantBuilderModel();
 
 	const [, drop] = useDrop(() => {
@@ -22,7 +26,7 @@ export const useVariantBuilderViewModel = () => {
 	const [, drag, dragPreview] = useDrag(() => ({
 		type: 'expression',
 		item: {
-			expression: expression.trim(),
+			expression: expression?.trim(),
 		}
 	}), [expression])
 

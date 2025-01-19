@@ -31,7 +31,7 @@ const ColumnSourceList = () => {
   return (
     <section className={styles.columnSource}>
       {columns.map((column) => (
-        <ColumnSource key={column.id} {...column} />
+        <ColumnSource key={column.id || column.field} {...column} />
       ))}
     </section>
   );
